@@ -1,3 +1,8 @@
+__author__ = "Marc J Kirschner"
+__copyright__ = "Copyright (C) 2020 Marc J Kirschner"
+__license__ = "Public Domain"
+__version__ = "0.1.1rc"
+
 from flask import Flask
 from flask import request
 
@@ -12,5 +17,3 @@ def sell_puts():
     tickers_list = list(map(str.upper,tickers.split(",")))
     data, _ = get_put_info(tickers_list, float(investment))
     return data
-
-# app.run(host='0.0.0.0', port='5372')
