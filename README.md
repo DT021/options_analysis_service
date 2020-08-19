@@ -31,14 +31,24 @@ in descending order according to the premium/collateral ratio when selling puts.
 21,CWH,2020-08-21,1,36.0,166.66666666666666,166.66666666666666,2.7777777777777777,0.6,False
 ```
 
-# Run Web Service
+# Flask Web Service
 
 An endpoint /sellputs exposes this data to http requests. Just run app.py in a flask container and then
 submit GET requests as in the following example:
 `http://localhost:5000/sellputs?tickers=f,hal&investment=10000`
+
+# Express Web Service
+
+There is an express service in node/. 
+`npm i`
+`npm start`
+`http://localhost:3000/sellputs?tickers=f,hal&investment=10000`
 
 # Run in your own code
 ```
 from tda_options import get_put_info
 info_text, info_dataframe = get_put_info("MSFT,FB", 50000)
 ```
+
+# React Native App
+There is an on going effort to create an iOS and Android app using React-Native. This is found in mobile_app/
