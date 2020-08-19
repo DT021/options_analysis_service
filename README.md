@@ -21,7 +21,7 @@ access to your ameritrade account.
 This will write a csv file called list.csv in the current working directory
 populated with data pulled from the option chains of the stocks provided.
 It will use $10,000 as the amount of available collateral to sort the stocks
-in descenind order according to the premium/collateral ratio when selling puts.
+in descending order according to the premium/collateral ratio when selling puts.
 
 ### Example of output
 
