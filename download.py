@@ -1,5 +1,5 @@
 """Usage:
-  download.py <tickerlist> <investment> <filename>
+  download.py <tickerlist> <investment> <filename> [-o]
   download.py -h | --help | --version
 """
 
@@ -21,9 +21,17 @@ def main():
     if ".csv" not in filename:
         filename = f"{filename}.csv"
 
-    put_info_text, put_info_df = get_put_info(ticker_list, investment)
-    put_info_df.to_csv(filename)
-    print(put_info_df.head())
+    if args["-o"]:
+        verbose = False
+    else:
+        verbose = True
+    put_info_text, put_info_df = get_put_info(ticker_list, investment, verbose=verbose)
+
+    if not args["-o"]:
+        put_info_df.to_csv(filename)
+        print(put_info_df.head())
+    else:
+        print(put_info_text)
 
 
 if __name__ == "__main__":

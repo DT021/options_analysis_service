@@ -37,12 +37,13 @@ def get_stock_quote(ticker):
 
 
 # Find high premium / collateral puts
-def get_put_info(ticker_list, investment, ignore_in_the_money=True):
+def get_put_info(ticker_list, investment, ignore_in_the_money=True, verbose=True):
     all_dfs = []
     now = datetime.now()
     counter = 1
     for ticker_name in ticker_list:
-        print(f"Processing {ticker_name} ({counter}/{len(ticker_list)})")
+        if verbose:
+            print(f"Processing {ticker_name} ({counter}/{len(ticker_list)})")
         counter += 1
         stock_data = get_stock_quote(ticker_name)
         current_price = stock_data[ticker_name]["lastPrice"]
