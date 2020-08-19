@@ -36,3 +36,9 @@ in descending order according to the premium/collateral ratio when selling puts.
 An endpoint /sellputs exposes this data to http requests. Just run app.py in a flask container and then
 submit GET requests as in the following example:
 `http://localhost:5000/sellputs?tickers=f,hal&investment=10000`
+
+# Run in your own code
+```
+from tda_options import get_put_info
+info_text, info_dataframe = get_put_info("MSFT,FB", 50000)
+```
