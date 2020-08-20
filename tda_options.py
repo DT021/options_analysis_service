@@ -72,7 +72,8 @@ def get_put_info(ticker_list, investment, ignore_in_the_money=True, verbose=True
                         # ask = contract["ask"]
                         num_contracts = int(investment / (strike * 100))
                         premium = num_contracts * bid * 100
-                        income_per_day = round(premium / days, 2)
+                        income_per_day = \
+                            round((premium / days) if days > 0 else premium, 2)
                         in_the_money = contract["inTheMoney"]
                         if ignore_in_the_money and in_the_money:
                             continue
