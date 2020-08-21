@@ -9,7 +9,7 @@ __license__ = "Public Domain"
 __version__ = "0.1.1rc"
 
 from docopt import docopt
-from tda_options import get_put_info
+from options_service import get_put_info
 
 
 # Command Line Utility

@@ -8,7 +8,7 @@ from flask import request
 
 app = Flask(__name__)
 
-from tda_options import get_put_info
+from options_service import get_put_info
 
 @app.route('/sellputs/')
 def sell_puts():
