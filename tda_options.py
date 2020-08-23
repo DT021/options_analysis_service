@@ -39,7 +39,7 @@ def get_stock_quote(ticker):
 # Find high premium / collateral puts
 def get_put_info(ticker_list, investment, ignore_in_the_money=True, verbose=True):
     all_dfs = []
-    now = datetime.now()
+    now = datetime.today()
     counter = 1
     for ticker_name in ticker_list:
         if verbose:
@@ -55,9 +55,8 @@ def get_put_info(ticker_list, investment, ignore_in_the_money=True, verbose=True
 
         for expiration_date_key in expiration_date_key_list:
             expiration_date = expiration_date_key.split(":")[0]
-            exp_date = datetime.strptime(expiration_date, "%Y-%m-%d")
-            diff = exp_date - now
-            days = diff.days
+            diff = expiration_date_key.split(":")[1]
+            days= int(diff)
 
             strikes = put_exp_date_map[expiration_date_key]
             strike_keys = strikes.keys()
